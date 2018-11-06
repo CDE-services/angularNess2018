@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'books-app',
   template: `
     <div>
-      <h1>Hello my {{title}}!</h1>
-      <button>Hello</button>
+      <h1>This is my {{title}} app!</h1>
+      <h2>Welcome!</h2>
     </div>
-    <book></book>
+    <books></books>
   `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'World';
+  title = 'BOOKS STORE';
 }
