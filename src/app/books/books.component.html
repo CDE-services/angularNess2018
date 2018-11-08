@@ -1,5 +1,35 @@
-Please choose your book!
+<div class="container">
+  <p>
+  Please choose your book!
+  </p>
+  <button class="btn btn-primary">Show cart</button>
 
-<book></book>
-<book></book>
-<book></book>
+  <!--<ng-template #noBooks>-->
+    <!--<p>-->
+      <!--There are no books-->
+    <!--</p>-->
+  <!--</ng-template>-->
+  <!--&lt;!&ndash;TODO: pridat do prezentacie!!!&ndash;&gt;-->
+  <!--<table *ngIf="books.length;else noBooks">-->
+    <!--<thead>-->
+      <!--<tr>-->
+        <!--<th>index in the array</th>-->
+        <!--<th>id</th>-->
+        <!--<th>title</th>-->
+        <!--<th>author</th>-->
+      <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+      <!--<tr *ngFor="let book of books;let i=index">-->
+        <!--<td>{{i+1}}</td>-->
+        <!--<td>{{book.id}}</td>-->
+        <!--<td>{{book.title}}</td>-->
+        <!--<td>{{book.author}}</td>-->
+      <!--</tr>-->
+      <!--<tr></tr>-->
+      <!--<tr></tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+
+  <book *ngFor="let book of books"></book>
+</div>

@@ -17,3 +17,11 @@
 .description {
   font-size: 15px;
 }
+
+.reservedBook {
+  background-color: red;
+}
+
+.withoutImage {
+  border: 1px solid black;
+}

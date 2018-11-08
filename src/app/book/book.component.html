@@ -1,5 +1,6 @@
-<div class="book">
-  <div class="title">{{id}}. {{title}}</div>
-  <div class="author">{{author}}</div>
-  <div class="description">{{description}}</div>
+<div class="book" [ngClass]="getClasses()">
+  <img [src]="book.imageUrl" [style.width.px]="imageWidth">
+  <div class="title">{{book.id}}. {{book.title}}</div>
+  <div class="author">{{book.author}}</div>
+  <div class="description">{{book.description}}</div>
 </div>
