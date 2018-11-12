@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>
+    Books
+  </h2>
+  <button class="btn btn-primary">Show cart</button>
+
+  <!--<ng-template #noBooks>-->
+  <!--<p>-->
+  <!--There are no book-list-->
+  <!--</p>-->
+  <!--</ng-template>-->
+
+  <!--<table *ngIf="book-list.length;else noBooks">-->
+  <!--<thead>-->
+  <!--<tr>-->
+  <!--<th>index in the array</th>-->
+  <!--<th>id</th>-->
+  <!--<th>title</th>-->
+  <!--<th>author</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr *ngFor="let book of book-list;let i=index">-->
+  <!--<td>{{i+1}}</td>-->
+  <!--<td>{{book.id}}</td>-->
+  <!--<td>{{book.title}}</td>-->
+  <!--<td>{{book.author}}</td>-->
+  <!--</tr>-->
+  <!--<tr></tr>-->
+  <!--<tr></tr>-->
+  <!--</tbody>-->
+  <!--</table>-->
+
+  <book *ngFor="let b of books" [book]="b"></book>
+</div>

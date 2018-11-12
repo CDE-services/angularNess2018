@@ -5,14 +5,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './book/book.component';
-import { BooksComponent } from './books/books.component';
+import { BookListComponent } from './book-list/book-list.component';
+import { AuthorComponent } from './author/author.component';
+import { AuthorListComponent } from './author-list/author-list.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
-    BooksComponent
+    BookListComponent,
+    AuthorComponent,
+    AuthorListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

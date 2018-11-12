@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>
+    Authors
+  </h2>
+  <div *ngFor="let a of authors; let id = index">
+    {{id + 1}}. author <author [data]="a"></author>
+  </div>
+</div>

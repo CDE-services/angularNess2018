@@ -1,0 +1,18 @@
+<div class="container author">
+  <img [src]="author.imageUrl" [style.width.px]="imageWidth">
+  <div class="name">{{author.name}} {{author.surname}}</div>
+  <span *ngIf="author.birthDate" class="date">
+    {{author.birthDate.getDay()}}.{{author.birthDate.getMonth()+1}}.{{author.birthDate.getFullYear()}} -
+  </span>
+  <span *ngIf="author.deathDate" class="date">
+  {{author.deathDate.getDay()}}.{{author.deathDate.getMonth()+1}}.{{author.deathDate.getFullYear()}}
+  </span>
+
+  <div [ngSwitch]="getAgeDescription()">
+    <div *ngSwitchCase="ageDesc.YOUNG">Young author</div>
+    <div *ngSwitchCase="ageDesc.AUTHOR">Author</div>
+    <div *ngSwitchCase="ageDesc.SKILLED">Skilled author</div>
+    <div *ngSwitchDefault="">Very skilled author</div>
+  </div>
+  <hr>
+</div>
