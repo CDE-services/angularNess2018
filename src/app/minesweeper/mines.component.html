@@ -1,0 +1,19 @@
+<div id="container"
+     [style.width.px]="18 * field.columnCount"
+     [style.height.px]="18 * field.rowCount">
+  <div id="game">
+    <field [field]="field"></field>
+  </div>
+  <div id="win-lose"
+       *ngIf="field.state !== gameState.PLAYING"
+       [style.width.px]="18 * field.columnCount"
+       [style.height.px]="18 * field.rowCount">
+    <div [style.paddingTop.px]="18 * field.rowCount / 2 - 40">
+      <h2>{{field.state === gameState.SOLVED ? 'YOU WON!!' : 'YOU LOST! :('}}</h2>
+      <strong id="congrats">{{field.state === gameState.SOLVED ? 'CONGRATULATIONS!' : 'play again :)'}}</strong>
+      <p>
+        <button (click)="newGame()">New game</button>
+      </p>
+    </div>
+  </div>
+</div>

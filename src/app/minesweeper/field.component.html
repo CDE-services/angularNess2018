@@ -1,0 +1,10 @@
+<table>
+  <tr *ngFor="let row of field.tiles; let r = index">
+    <td *ngFor="let t of row; let c = index">
+      <tile [tile]="t"
+            (openTileEvent)="field.openTile(r, c)"
+            (markTileEvent)="field.markTile(r, c)"
+      ></tile>
+    </td>
+  </tr>
+</table>
