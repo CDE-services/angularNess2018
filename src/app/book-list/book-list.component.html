@@ -2,7 +2,15 @@
   <h2>
     Books
   </h2>
-  <button class="btn btn-primary">Show cart</button>
+  <button
+    (click)="toggleCart()"
+    class="btn btn-primary">
+    Show cart
+  </button>
+
+  <h4 *ngIf="cartIsDisplayed">
+    This is my cart
+  </h4>
 
   <!--<ng-template #noBooks>-->
   <!--<p>-->
@@ -31,5 +39,7 @@
   <!--</tbody>-->
   <!--</table>-->
 
-  <book *ngFor="let b of books" [book]="b"></book>
+  <book *ngFor="let b of books" [book]="b"
+        (mojKlik)="react()"
+  ></book>
 </div>

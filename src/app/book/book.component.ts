@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from '../model/book.model';
 
 @Component({
@@ -10,6 +10,7 @@ export class BookComponent implements OnInit {
   imageWidth = 100;
 
   @Input() book : Book = new Book(-1,'','','','',false);
+  @Output() mojKlik: EventEmitter<String> = new EventEmitter<String>();
 
   getClasses() {
     return {
@@ -19,7 +20,7 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //pockame 5 ms a potom zmenime reserved na true
+    // pockame 5 ms a potom zmenime reserved na true
     // setTimeout(()=> {
     //   this.book.reserved = true;
     // }, 5000);
@@ -27,5 +28,14 @@ export class BookComponent implements OnInit {
     // setTimeout(()=> {
     //   this.book.imageUrl= '';
     // }, 7000);
+
+    // setTimeout(()=> {
+    //   console.log(`kniha ${this.book.title} robi notify`);
+    // }, 5000);
+  }
+
+  emitSomething() {
+    this.mojKlik.emit("value changed");
+    console.log(`kniha ${this.book.title} robi notify`);
   }
 }

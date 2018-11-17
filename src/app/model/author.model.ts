@@ -9,7 +9,7 @@ export class Author {
   constructor(name: string, surname: string,
               birthDate: Date, deathDate: Date,
               imageUrl: string,
-              gender?: Gender = Gender.FEMALE) {
+              gender: Gender = Gender.FEMALE) {
     this.name = name;
     this.surname = surname;
     this.birthDate = birthDate;

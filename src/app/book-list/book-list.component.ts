@@ -15,4 +15,16 @@ export class BookListComponent {
     new Book(2, 'I, Robot', 'Isaac Asimov', '', '', true),
     new Book(3, 'The Naked Sun', 'Isaac Asimov', '', '', false),
   ];
+
+
+
+  cartIsDisplayed = false;
+
+  toggleCart() {
+    this.cartIsDisplayed = !this.cartIsDisplayed;
+  }
+
+  react() {
+    console.log("Book list is reacting!");
+  }
 }
