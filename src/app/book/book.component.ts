@@ -9,7 +9,7 @@ import {Book} from '../model/book.model';
 export class BookComponent implements OnInit {
   imageWidth = 100;
 
-  @Input() book : Book = new Book(-1,'','','','',false);
+  @Input() book : Book = new Book(-1,'','','','',false, 0, []);
   @Output() mojKlik: EventEmitter<String> = new EventEmitter<String>();
 
   getClasses() {

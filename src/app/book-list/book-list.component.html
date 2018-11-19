@@ -2,6 +2,9 @@
   <h2>
     Books
   </h2>
+
+  <book-form [book]="books[2]"></book-form>
+
   <button
     (click)="toggleCart()"
     class="btn btn-primary">
@@ -39,7 +42,7 @@
   <!--</tbody>-->
   <!--</table>-->
 
-  <book *ngFor="let b of books" [book]="b"
+  <book *ngFor="let b of books | bookFilter" [book]="b"
         (mojKlik)="react()"
   ></book>
 </div>

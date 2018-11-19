@@ -1,5 +1,6 @@
 .book {
   margin: 15px;
+  padding: 10px;
 }
 
 .title {
@@ -19,9 +20,14 @@
 }
 
 .reservedBook {
-  background-color: red;
+  background-color: lightgray;
 }
 
 .withoutImage {
   border: 1px solid black;
+}
+
+.price {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }

@@ -3,11 +3,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'books-app',
   template: `
-    <input [value]="text"
-           (input)="doTextInput($event.target.value)">
-    {{text}}
-    
+    <!--<input [value]="text"-->
+           <!--(input)="doTextInput($event.target.value)">-->
+
+    <!--<input [(ngModel)]="text">-->
+    <!--<input (input)="doTextInput($event.target.value)">-->
+    <!--{{text}}-->
+    <!---->
     <my-header></my-header>
+    
     <book-list></book-list>
     <author-list></author-list>
   `,

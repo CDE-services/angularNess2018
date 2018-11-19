@@ -9,6 +9,9 @@ import { BookListComponent } from './book-list/book-list.component';
 import { AuthorComponent } from './author/author.component';
 import { AuthorListComponent } from './author-list/author-list.component';
 import { HeaderComponent } from './header/header.component';
+import { ExponentialStrengthPipe } from './shared/exponentialStrength.pipe';
+import { BookFilterPipe } from './book-list/bookFilter.pipe';
+import {BookFormComponent} from './book-form/book-form.component';
 
 
 @NgModule({
@@ -18,7 +21,11 @@ import { HeaderComponent } from './header/header.component';
     BookListComponent,
     AuthorComponent,
     AuthorListComponent,
-    HeaderComponent
+    HeaderComponent,
+    BookFormComponent,
+
+    ExponentialStrengthPipe,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule,
