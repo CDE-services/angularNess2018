@@ -1,5 +1,7 @@
 <h3>Book form</h3>
-<form name="bookForm" #bookForm="ngForm">
+<form name="bookForm"
+      #bookForm="ngForm"
+      (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="titleInput">Title</label>
     <input
@@ -28,6 +30,40 @@
   </div>
 
   <div class="form-group">
+    <label for="priceInput">Price</label>
+    <input
+      class="form-control"
+      #priceInput="ngModel"
+      name="priceInput"
+      id="priceInput"
+      type="number"
+      min="1"
+      required
+      [(ngModel)]="book.price"
+      oninput="this.value = Math.abs(this.value)">
+    <small *ngIf="!priceInput.valid && priceInput.touched">
+      Price has to be a positive number!
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="urlInput">Image URL:</label>
+    <input
+      class="form-control"
+      #urlInput="ngModel"
+      name="urlInput"
+      id="urlInput"
+      type="url"
+      pattern="http(s)?://.*"
+      [(ngModel)]="book.imageUrl">
+    <small>
+      Valid: {{urlInput.valid}}
+      Valid: {{urlInput.touched}}
+      Valid: {{urlInput.dirty}}
+    </small>
+  </div>
+
+  <div class="form-group">
     <label for="genresSelect">Genre:</label>
     <select
       class="form-control"
@@ -36,7 +72,7 @@
       [(ngModel)]="book.genre">
       <option
         *ngFor="let g of genres"
-        [value]="g.name"
+        [value]="g"
       >{{g.name}}
       </option>
     </select>

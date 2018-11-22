@@ -20,4 +20,10 @@ export class BookFormComponent {
   getBookToString(): string {
     return JSON.stringify(this.book);
   }
+
+  submitted = false;
+  onSubmit() {
+    this.submitted = true;
+    console.log("SUBMIT");
+  }
 }
