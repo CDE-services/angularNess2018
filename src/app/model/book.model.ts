@@ -7,12 +7,14 @@ export class Book {
   reserved: boolean = false;
   price: number = 0;
   genre: string;
+  rating: number;
 
   public constructor(
     id: number, title: string, author: string,
     description: string, imageUrl: string,
     reserved: boolean, price: number,
-    genre: string = ""
+    genre: string = "",
+    rating: number = 0
   ) {
     this.id = id;
     this.title = title;
@@ -22,6 +24,7 @@ export class Book {
     this.reserved = reserved;
     this.price = price;
     this.genre = genre;
+    this.rating = rating;
   }
 }
 

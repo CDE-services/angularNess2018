@@ -3,7 +3,15 @@
     Books
   </h2>
 
-  <book-form [book]="books[2]"></book-form>
+  <button
+    (click)="toggleBookForm()"
+    class="btn btn-primary">
+    {{bookFormDisplayed ? 'Hide' : 'Show'}} book form
+  </button>
+
+  <book-form [book]="books[2]"
+       *ngIf="bookFormDisplayed"
+  ></book-form>
 
   <button
     (click)="toggleCart()"
@@ -42,7 +50,14 @@
   <!--</tbody>-->
   <!--</table>-->
 
-  <book *ngFor="let b of books | bookFilter" [book]="b"
-        (mojKlik)="react()"
-  ></book>
+  <div *ngFor="let b of books | bookFilter">
+    <book  [book]="b"
+          (mojKlik)="react()"
+    ></book>
+    {{b.rating}}
+    <star
+      [rating]="b.rating"
+      (onRatingChanged)="b.rating = $event"
+    ></star>
+  </div>
 </div>

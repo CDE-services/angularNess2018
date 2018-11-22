@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { ExponentialStrengthPipe } from './shared/exponentialStrength.pipe';
 import { BookFilterPipe } from './book-list/bookFilter.pipe';
 import {BookFormComponent} from './book-form/book-form.component';
+import { StarComponent } from './star/star.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {BookFormComponent} from './book-form/book-form.component';
     BookFormComponent,
 
     ExponentialStrengthPipe,
-    BookFilterPipe
+    BookFilterPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule,
