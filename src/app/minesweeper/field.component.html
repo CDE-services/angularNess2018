@@ -4,6 +4,7 @@
       <tile [tile]="t"
             (openTileEvent)="field.openTile(r, c)"
             (markTileEvent)="field.markTile(r, c)"
+            (click)="checkIfWin()"
       ></tile>
     </td>
   </tr>

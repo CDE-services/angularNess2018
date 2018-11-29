@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {MinesComponent} from './minesweeper/mines.component';
 import {FieldComponent} from './minesweeper/field.component';
 import {TileComponent} from './minesweeper/tile.component';
+import {ScoreService} from './services/score.service';
 
 @NgModule({
   declarations: [

@@ -17,6 +17,7 @@ export class Field {
     public readonly rowCount : number;
     public readonly columnCount : number;
     public readonly mineCount : number;
+    private numClicks: number = 0;
 
     constructor(rowCount: number = 10, columnCount: number = 10, mineCount: number = 10) {
         this.rowCount = rowCount;
@@ -90,23 +91,32 @@ export class Field {
     }
 
     public openTile(row: number, col: number): void {
-        let tile: Tile = this.tiles[row][col];
+      let tile: Tile = this.tiles[row][col];
 
-        if (tile.state === TileState.CLOSED) {
-            tile.state = TileState.OPEN;
-            if(!(tile['value'] >= 0)) { //it is a mine
-                this.state = GameState.FAILED;
-                return;
-            }
-            if(tile['value'] >= 0) { //it is a clue
-                if (tile['value'] === 0) {
-                    this.openNeighbouringTiles(row, col);
-                }
-            }
-            if (this.isSolved()) {
-                this.state = GameState.SOLVED;
-            }
+      if (tile.state === TileState.CLOSED) {
+        this.numClicks++;
+        this.openTileRecursive(row, col);
+      }
+    }
+
+    public openTileRecursive(row: number, col: number): void {
+      let tile: Tile = this.tiles[row][col];
+
+      if (tile.state === TileState.CLOSED) {
+        tile.state = TileState.OPEN;
+        if(!(tile['value'] >= 0)) { //it is a mine
+          this.state = GameState.FAILED;
+          return;
         }
+        if(tile['value'] >= 0) { //it is a clue
+          if (tile['value'] === 0) {
+            this.openNeighbouringTiles(row, col);
+          }
+        }
+        if (this.isSolved()) {
+          this.state = GameState.SOLVED;
+        }
+      }
     }
 
     private openNeighbouringTiles(row: number, col: number): void {
@@ -116,7 +126,7 @@ export class Field {
                 for (let colOffset: number = -1; colOffset <= 1; colOffset++) {
                     let acurColumn: number = col + colOffset;
                     if (acurColumn >= 0 && acurColumn < this.columnCount) {
-                        this.openTile(acurRow, acurColumn);
+                        this.openTileRecursive(acurRow, acurColumn);
                     }
                 }
             }
@@ -147,5 +157,14 @@ export class Field {
             }
         }
         return count;
+    }
+
+    public getScore(): number {
+      let temp =
+        (this.rowCount * this.columnCount)
+        - this.numClicks;
+      console.log(`[${this.rowCount},${this.columnCount},${this.numClicks}] = ${temp}`);
+      console.log(temp);
+      return temp;
     }
 }

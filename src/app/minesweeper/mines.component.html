@@ -17,3 +17,22 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Played on</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of scores">
+        <td>{{s.player | uppercase}}</td>
+        <td>{{s.playedOn | date : "HH:mm dd.MM.yyyy"}}</td>
+        <td>{{s.points}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
