@@ -2,18 +2,19 @@
   <div class="row">
     <img class="col-sm-2" [src]="book.imageUrl" [style.width.px]="imageWidth">
     <div class="col-sm-6">
-        <div class="title">{{book.id}}. {{book.title | uppercase}}</div>
-        <div class="author">{{book.author}}</div>
-        <div class="description">{{book.description}}</div>
+      <div class="title">{{book.id}}. {{book.title | uppercase}}</div>
+      <div class="author">{{book.author}}</div>
+      <div class="description">{{book.description}}</div>
     </div>
     <div class="col-sm-2">
-        <div class="price">
-          {{book.price | currency: "EUR" : true : "1.0-2"}}
-        </div>
-        <div>
-          {{book.price | exponentialStrength : 4 | currency: "EUR" }}
-        </div>
-        <button class="btn btn-primary" (click)="emitSomething()">Klikni ma v knihe!</button>
+      <div class="price">
+        {{book.price | currency: "EUR" : true : "1.0-2"}}
+      </div>
+      <div>
+        {{book.price | exponentialStrength : 4 | currency: "EUR" }}
+      </div>
+      <!--<button class="btn btn-primary" (click)="emitSomething()">Klikni ma v knihe!</button>-->
     </div>
   </div>
+  <button class="btn" (click)="goBack()">Back</button>
 </div>

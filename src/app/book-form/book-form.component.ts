@@ -19,7 +19,8 @@ export class BookFormComponent
     new Genre("fantasy")
   ];
 
-  private constructor() {
+  //nesmie byt private, to bolo chybne
+  constructor() {
     console.log("constructor");
   }
 

@@ -3,61 +3,65 @@
     Books
   </h2>
 
-  <button
-    (click)="toggleBookForm()"
-    class="btn btn-primary">
-    {{bookFormDisplayed ? 'Hide' : 'Show'}} book form
-  </button>
+  <!--<button-->
+    <!--(click)="toggleBookForm()"-->
+    <!--class="btn btn-primary">-->
+    <!--{{bookFormDisplayed ? 'Hide' : 'Show'}} book form-->
+  <!--</button>-->
 
-  <book-form [book]="books[2]"
-       *ngIf="bookFormDisplayed"
-  ></book-form>
+  <!--<book-form [book]="books[2]"-->
+       <!--*ngIf="bookFormDisplayed"-->
+  <!--&gt;</book-form>-->
 
-  <button
-    (click)="toggleCart()"
-    class="btn btn-primary">
-    Show cart
-  </button>
+  <!--<button-->
+    <!--(click)="toggleCart()"-->
+    <!--class="btn btn-primary">-->
+    <!--Show cart-->
+  <!--</button>-->
 
-  <h4 *ngIf="cartIsDisplayed">
-    This is my cart
-  </h4>
+  <!--<h4 *ngIf="cartIsDisplayed">-->
+    <!--This is my cart-->
+  <!--</h4>-->
 
-  <!--<ng-template #noBooks>-->
-  <!--<p>-->
-  <!--There are no book-list-->
-  <!--</p>-->
-  <!--</ng-template>-->
+  <ng-template #noBooks>
+    <p>
+    There are no book-list
+    </p>
+  </ng-template>
 
-  <!--<table *ngIf="book-list.length;else noBooks">-->
-  <!--<thead>-->
-  <!--<tr>-->
-  <!--<th>index in the array</th>-->
-  <!--<th>id</th>-->
-  <!--<th>title</th>-->
-  <!--<th>author</th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-  <!--<tbody>-->
-  <!--<tr *ngFor="let book of book-list;let i=index">-->
-  <!--<td>{{i+1}}</td>-->
-  <!--<td>{{book.id}}</td>-->
-  <!--<td>{{book.title}}</td>-->
-  <!--<td>{{book.author}}</td>-->
-  <!--</tr>-->
-  <!--<tr></tr>-->
-  <!--<tr></tr>-->
-  <!--</tbody>-->
-  <!--</table>-->
+  <table *ngIf="books.length;else noBooks"
+         class="table"
+  >
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Rating</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of books | bookFilter"
+          [routerLink]="[b.id]"
+          style="cursor: pointer"
+      >
+        <td scope="row">{{b.title}}</td>
+        <td>{{b.author}}</td>
+        <td>
+          <star
+            [rating]="b.rating"
+            (onRatingChanged)="b.rating = $event"
+          ></star>
+        </td>
+        <td><a [routerLink]="[b.id]">Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div *ngFor="let b of books | bookFilter">
-    <book  [book]="b"
-          (mojKlik)="react()"
-    ></book>
-    {{b.rating}}
-    <star
-      [rating]="b.rating"
-      (onRatingChanged)="b.rating = $event"
-    ></star>
-  </div>
+  <button class="btn btn-default"
+          [routerLink]="['add']"
+  >Add new book</button>
+
+  <!--ak je children v routes, potom niekde v tomto komponente musi byt toto:-->
+  <!--<router-outlet></router-outlet>-->
 </div>

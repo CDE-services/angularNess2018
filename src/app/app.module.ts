@@ -13,6 +13,9 @@ import { ExponentialStrengthPipe } from './shared/exponentialStrength.pipe';
 import { BookFilterPipe } from './book-list/bookFilter.pipe';
 import {BookFormComponent} from './book-form/book-form.component';
 import { StarComponent } from './star/star.component';
+import {AppRoutingModule} from "./app.routing.module";
+import {BookService} from "./services/book.service";
+import {CartComponent} from "./cart/cart.component";
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import { StarComponent } from './star/star.component';
     AuthorListComponent,
     HeaderComponent,
     BookFormComponent,
+    CartComponent,
 
     ExponentialStrengthPipe,
     BookFilterPipe,
@@ -31,9 +35,10 @@ import { StarComponent } from './star/star.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

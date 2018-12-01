@@ -12,8 +12,7 @@ import { Component } from '@angular/core';
     <!---->
     <my-header></my-header>
     
-    <book-list></book-list>
-    <author-list></author-list>
+    <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']
 })

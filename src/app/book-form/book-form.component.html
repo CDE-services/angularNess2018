@@ -1,89 +1,91 @@
-<h3>Book form</h3>
-<form name="bookForm"
-      #bookForm="ngForm"
-      (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="titleInput">Title</label>
-    <input
-      class="form-control"
-      #titleInput="ngModel"
-      name="titleInput"
-      id="titleInput"
-      required
-      [(ngModel)]="book.title"
-    >
-    <small *ngIf="!titleInput.valid && titleInput.touched">
-      Title is mandatory.
-    </small>
-  </div>
+<div class="container">
+  <h3>Book form</h3>
+  <form name="bookForm"
+        #bookForm="ngForm"
+        (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titleInput">Title</label>
+      <input
+        class="form-control"
+        #titleInput="ngModel"
+        name="titleInput"
+        id="titleInput"
+        required
+        [(ngModel)]="book.title"
+      >
+      <small *ngIf="!titleInput.valid && titleInput.touched">
+        Title is mandatory.
+      </small>
+    </div>
 
-  <div class="form-group">
-    <label for="descriptionInput">Description</label>
-    <textarea
-      class="form-control"
-      #descriptionInput="ngModel"
-      name="descriptionInput"
-      id="descriptionInput"
-      rows="4"
-      [(ngModel)]="book.description">
-    </textarea>
-  </div>
+    <div class="form-group">
+      <label for="descriptionInput">Description</label>
+      <textarea
+        class="form-control"
+        #descriptionInput="ngModel"
+        name="descriptionInput"
+        id="descriptionInput"
+        rows="4"
+        [(ngModel)]="book.description">
+      </textarea>
+    </div>
 
-  <div class="form-group">
-    <label for="priceInput">Price</label>
-    <input
-      class="form-control"
-      #priceInput="ngModel"
-      name="priceInput"
-      id="priceInput"
-      type="number"
-      min="1"
-      required
-      [(ngModel)]="book.price"
-      oninput="this.value = Math.abs(this.value)">
-    <small *ngIf="!priceInput.valid && priceInput.touched">
-      Price has to be a positive number!
-    </small>
-  </div>
+    <div class="form-group">
+      <label for="priceInput">Price</label>
+      <input
+        class="form-control"
+        #priceInput="ngModel"
+        name="priceInput"
+        id="priceInput"
+        type="number"
+        min="1"
+        required
+        [(ngModel)]="book.price"
+        oninput="this.value = Math.abs(this.value)">
+      <small *ngIf="!priceInput.valid && priceInput.touched">
+        Price has to be a positive number!
+      </small>
+    </div>
 
-  <div class="form-group">
-    <label for="urlInput">Image URL:</label>
-    <input
-      class="form-control"
-      #urlInput="ngModel"
-      name="urlInput"
-      id="urlInput"
-      type="url"
-      pattern="http(s)?://.*"
-      [(ngModel)]="book.imageUrl">
-    <small>
-      Valid: {{urlInput.valid}}
-      Valid: {{urlInput.touched}}
-      Valid: {{urlInput.dirty}}
-    </small>
-  </div>
+    <div class="form-group">
+      <label for="urlInput">Image URL:</label>
+      <input
+        class="form-control"
+        #urlInput="ngModel"
+        name="urlInput"
+        id="urlInput"
+        type="url"
+        pattern="http(s)?://.*"
+        [(ngModel)]="book.imageUrl">
+      <small>
+        Valid: {{urlInput.valid}}
+        Valid: {{urlInput.touched}}
+        Valid: {{urlInput.dirty}}
+      </small>
+    </div>
 
-  <div class="form-group">
-    <label for="genresSelect">Genre:</label>
-    <select
-      class="form-control"
-      name="genresSelect"
-      id="genresSelect"
-      [(ngModel)]="book.genre">
-      <option
-        *ngFor="let g of genres"
-        [value]="g"
-      >{{g.name}}
-      </option>
-    </select>
-  </div>
+    <div class="form-group">
+      <label for="genresSelect">Genre:</label>
+      <select
+        class="form-control"
+        name="genresSelect"
+        id="genresSelect"
+        [(ngModel)]="book.genre">
+        <option
+          *ngFor="let g of genres"
+          [value]="g"
+        >{{g.name}}
+        </option>
+      </select>
+    </div>
 
-  <button
-    type="submit"
-    class="btn btn-primary"
-    [disabled]="!bookForm.valid">
-    Submit
-  </button>
-</form>
-<!--uncomment this for debugging:-->
-<!--{{getBookToString()}}-->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!bookForm.valid">
+      Submit
+    </button>
+  </form>
+  <!--uncomment this for debugging:-->
+  <!--{{getBookToString()}}-->
+</div>

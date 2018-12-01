@@ -6,8 +6,8 @@ import {Book} from '../model/book.model';
 })
 export class BookFilterPipe implements PipeTransform {
 
-  transform(value: Book[]): Book[] {
-    return value.filter(b => b.reserved == false);
+  transform(books: Book[]): Book[] {
+    return books.filter(b => b.reserved == false);
   }
 
 }
