@@ -29,10 +29,12 @@ export class BookComponent implements OnInit {
       this.activatedRoute.params.subscribe(
       params => {
         let param = params["id"];
-        let b = this.bookService.getBook(param);
-        if(b != null) {
-          this.book = b;
-        }
+
+        this.bookService.getBook(param).subscribe(
+          data => {
+            this.book = data;
+          }
+        );
       }
     );
 

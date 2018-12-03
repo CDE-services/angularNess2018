@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Book, Genre} from '../model/book.model';
 import {Router} from '@angular/router';
+import {BookService} from "../services/book.service";
 
 @Component({
   selector: 'book-form',
@@ -9,8 +10,11 @@ import {Router} from '@angular/router';
 })
 export class BookFormComponent
   implements OnInit, OnChanges {
-  @Input() book : Book;
-  // formBook : Book = new Book(-1,'','','','',false, 0);
+  @Input() book : Book = new Book(-1,'','','','',false, 0);
+
+  constructor(private bookService: BookService,
+              private router: Router
+              ) {}
 
   genres : Genre[] = [
     new Genre("sci-fi"),
@@ -40,7 +44,10 @@ export class BookFormComponent
   submitted = false;
   onSubmit() {
     this.submitted = true;
-    console.log("SUBMIT");
+    this.bookService.addBook(this.book).subscribe((data) => {
+      this.router.navigate(
+        ["/books", data.id]
+      );
+    });
   }
-
 }

@@ -1,5 +1,8 @@
 <div class="book container" [ngClass]="getClasses()">
-  <div class="row">
+  <div class="row" *ngIf="book.id === -1">
+    Loading...
+  </div>
+  <div class="row" *ngIf="book.id !== -1">
     <img class="col-sm-2" [src]="book.imageUrl" [style.width.px]="imageWidth">
     <div class="col-sm-6">
       <div class="title">{{book.id}}. {{book.title | uppercase}}</div>

@@ -16,6 +16,9 @@ import { StarComponent } from './star/star.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {BookService} from "./services/book.service";
 import {CartComponent} from "./cart/cart.component";
+import {InMemoryDataService} from "./in-memory-data.service";
+import {HttpClientModule} from "@angular/common/http";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 
 
 @NgModule({
@@ -36,7 +39,11 @@ import {CartComponent} from "./cart/cart.component";
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule
+      .forRoot(InMemoryDataService,
+        {dataEncapsulation: false})
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

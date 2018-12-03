@@ -18,7 +18,17 @@ export class BookListComponent implements OnInit {
   constructor(private bookService : BookService) {}
 
   ngOnInit(): void {
-    this.books = this.bookService.getBooks();
+    this.bookService.getBooks().subscribe(
+      data => this.books = data
+    );
+  }
+
+  deleteBook(book: Book): void {
+    this.bookService.deleteBook(book).subscribe(data => {
+      console.log(`book ${book.id} deleted`);
+      console.log(data);
+      this.ngOnInit();
+    });
   }
 
   toggleCart() {

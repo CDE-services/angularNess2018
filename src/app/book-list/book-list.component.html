@@ -3,29 +3,9 @@
     Books
   </h2>
 
-  <!--<button-->
-    <!--(click)="toggleBookForm()"-->
-    <!--class="btn btn-primary">-->
-    <!--{{bookFormDisplayed ? 'Hide' : 'Show'}} book form-->
-  <!--</button>-->
-
-  <!--<book-form [book]="books[2]"-->
-       <!--*ngIf="bookFormDisplayed"-->
-  <!--&gt;</book-form>-->
-
-  <!--<button-->
-    <!--(click)="toggleCart()"-->
-    <!--class="btn btn-primary">-->
-    <!--Show cart-->
-  <!--</button>-->
-
-  <!--<h4 *ngIf="cartIsDisplayed">-->
-    <!--This is my cart-->
-  <!--</h4>-->
-
   <ng-template #noBooks>
     <p>
-    There are no book-list
+      Loading...
     </p>
   </ng-template>
 
@@ -34,18 +14,21 @@
   >
     <thead class="thead-light">
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
         <th scope="col">Rating</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let b of books | bookFilter"
-          [routerLink]="[b.id]"
+    <!--[routerLink]="[b.id]"-->
+      <tr *ngFor="let b of books"
           style="cursor: pointer"
       >
-        <td scope="row">{{b.title}}</td>
+        <td scope="row">{{b.id}}</td>
+        <td>{{b.title}}</td>
         <td>{{b.author}}</td>
         <td>
           <star
@@ -54,6 +37,7 @@
           ></star>
         </td>
         <td><a [routerLink]="[b.id]">Detail</a></td>
+        <td><a (click)="deleteBook(b)">Delete</a></td>
       </tr>
     </tbody>
   </table>
